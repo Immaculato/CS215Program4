@@ -6,27 +6,19 @@
  * Driver program for WordGrid game.
  */ 
 
+
 #include <iostream>
 #include "game.h"
+#include "wordlist.h"
 
 using namespace std;
 
 int main()
 {
-	// TODO: seed the RNG
+	WordList words;
+	words = WordList("wordlist.txt");
+	cout << words.WordInList("TEST");
 
-    /* Depending on how you design your Game class, your main
-     * function could be as simple as the following:
-
-        Game game("wordlist.txt");
-
-        while (!game.is_ended())
-        {
-            game.take_turn();
-        }
-        game.game_over();
-     
-     */
 
     system("pause");
     return 0;
