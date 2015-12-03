@@ -22,3 +22,36 @@ list<Position> Board::adjacent(Position p) const
 
     return adj;
 }
+
+Board::Board()
+{
+	for (int i=0; i<BOARD_SIZE; i++)
+	{
+		for (int j=0; j<BOARD_SIZE; j++)
+		{
+			letters[i][j] = randomLetter();
+		}
+	}
+}
+
+	//prints the board to the screen
+void Board::PrintBoard()
+{
+	for (int i=0; i<BOARD_SIZE; i++)
+	{
+		cout << "+---+---+---+---+" << endl;
+		for (int j=0; j<BOARD_SIZE; j++)
+		{
+			cout << "| " << letters[i][j] << " ";
+		}
+		cout << "|" << endl;
+	}
+	cout << "+---+---+---+---+" << endl;
+}
+
+	//checks if word occurs on the board
+bool Board::WordOnBoard(string word)
+{
+	return false;
+}
+

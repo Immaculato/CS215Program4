@@ -3,6 +3,8 @@
 
 #include <list>
 #include "position.h"
+#include "letters.h"
+#include <iostream>
 
 using namespace std;
 

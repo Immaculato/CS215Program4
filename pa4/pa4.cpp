@@ -9,17 +9,17 @@
 
 #include <iostream>
 #include "game.h"
-#include "wordlist.h"
 
 using namespace std;
 
 int main()
 {
 	WordList words;
-	words = WordList("wordlist.txt");
-	cout << words.WordInList("TEST");
+	//words = WordList("wordlist.txt");
+	//cout << words.WordInList("TEST");
 
-
+	Board test;
+	test.PrintBoard();
     system("pause");
     return 0;
 }
