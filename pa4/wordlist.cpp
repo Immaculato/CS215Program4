@@ -14,7 +14,7 @@ WordList::WordList(string filename)
 
 	if (infile.fail() == true) //if the file fails to open,
 	{
-		
+
 		throw runtime_error("Error: Cannot open the file."); //throw a runtime error!
 	}
 
@@ -42,31 +42,28 @@ bool WordList::WordInList(string word)
 //helper function that recursively finds a word in the list.
 bool WordList::BinarySearch(string word, int lower, int higher)
 {
-  // test if array is empty
-  if (higher < lower)
-    // set is empty, so return value showing not found
-		return false;
-  else
-    {
-      // calculate midpoint to cut set in half
-      int middle = ((higher + lower)/2);
-      
-      for (int index=0; index < word.size(); index++)
-	  {
-		 if (words[middle][index] > word[index])
-		 {
-			 return BinarySearch(word, lower, middle-1);
-		 }
-		 else if (words[middle][index] < word[index])
-		 {
-			 return BinarySearch(word, middle+1, higher);
-		 }
-		 else
-		 {
-			 return true;
-		 }
-	  }
-  }
+	// test if array is empty
+	if (higher < lower)
+		// set is empty, so return value showing not found
+			return false;
+	else
+	{
+		// calculate midpoint to cut set in half
+		int middle = ((higher + lower)/2);
+
+		if (words[middle] > word)
+		{
+			return BinarySearch(word, lower, middle-1);
+		}
+		else if (words[middle] < word)
+		{
+			return BinarySearch(word, middle+1, higher);
+		}
+		else
+		{
+			return true;
+		}
+	}
 }
 //vector of strings containing all the specified words.
 //vector<string> words;

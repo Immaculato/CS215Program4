@@ -5,6 +5,7 @@
 #include "position.h"
 #include "letters.h"
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -29,11 +30,12 @@ private:
   list<Position> adjacent(Position p) const;
 
   // TODO: recursive helper function for word search 
-  bool RecursiveWordSearch(string word);
+  bool RecursiveWordSearch(string word, Position currentposition);
 
 
   // private data member
   char letters[BOARD_SIZE][BOARD_SIZE];
+
 };
 
 #endif

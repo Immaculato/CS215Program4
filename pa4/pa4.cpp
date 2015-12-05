@@ -14,9 +14,12 @@ using namespace std;
 
 int main()
 {
+	/*
 	WordList words;
-	//words = WordList("wordlist.txt");
-	//cout << words.WordInList("TEST");
+	words = WordList("wordlist.txt");
+	system("pause");
+	cout << words.WordInList("LEFT");
+	*/
 
 	Board test;
 	test.PrintBoard();

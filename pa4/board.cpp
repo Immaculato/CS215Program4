@@ -52,6 +52,37 @@ void Board::PrintBoard()
 	//checks if word occurs on the board
 bool Board::WordOnBoard(string word)
 {
-	return false;
+	for (int i=0; i<BOARD_SIZE; i++)
+	{
+		for (int j=0; j<BOARD_SIZE; j++)
+		{
+			if (letters[i][j] == word[0])
+			{
+				Position currentposition(i, j);
+				return RecursiveWordSearch(word, currentposition);
+			}
+			return false;
+		}
+	}
 }
 
+ bool Board::RecursiveWordSearch(string word, Position currentposition)
+ {
+	 if (word == "")
+	 {
+		 return true;
+	 }
+	 list<Position> adjacentpositions = adjacent(currentposition);
+	 list<Position>::iterator itindex;
+	 itindex = adjacentpositions.begin();
+	 while (itindex != adjacentpositions.end())
+	 {
+		 Position tempposition = *itindex;
+		 if (tempposition.x() == currentposition.x() && tempposition.y() == currentposition.y())
+		 {
+			 return RecursiveWordSearch(word.substr(1, word.size() - 2), tempposition);
+		 }
+		 itindex++;
+	 }
+	 return false;
+ }
