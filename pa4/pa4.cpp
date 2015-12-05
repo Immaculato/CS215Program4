@@ -23,7 +23,7 @@ int main()
 
 	Board test;
 	test.PrintBoard();
-	cout << test.WordOnBoard("Z");
+	cout << test.WordOnBoard("AFL");
     system("pause");
     return 0;
 }

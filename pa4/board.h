@@ -6,6 +6,7 @@
 #include "letters.h"
 #include <iostream>
 #include <cstdlib>
+#include <vector>
 
 using namespace std;
 
@@ -33,7 +34,9 @@ private:
   bool RecursiveWordSearch(string word, Position currentposition);
 
   //helper function that finds the position of a character on the board. will throw an error if it cant find one.
-  Position FindPosition(char character);
+  vector<Position*> FindPositions(char character);
+
+  void ClearPositions(vector<Position*> positions);
 
   //accesses the character at the specified position
   char AccessPosition(Position givenposition);

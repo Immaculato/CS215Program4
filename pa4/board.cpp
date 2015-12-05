@@ -52,19 +52,22 @@ void Board::PrintBoard()
 //checks if word occurs on the board
 bool Board::WordOnBoard(string word)
 {
-	Position currentposition;
-	currentposition = FindPosition(word[0]);
-	return RecursiveWordSearch(word, currentposition);
+	bool foundtheword = false;
+	vector<Position*> positions;
+	positions = FindPositions(word[0]);
+	int index=0;
+	while (index<positions.size() && foundtheword==false)
+	{
+		foundtheword = RecursiveWordSearch(word, *positions[index]);
+		index++;
+	}
+	ClearPositions(positions);
+	return foundtheword;
 }
 
 bool Board::RecursiveWordSearch(string word, Position currentposition)
 {
-	if (currentposition.x() == -1)
-	{
-		return false;
-	}
-	else if (currentposition.x() == FindPosition(word[word.size()-1]).x() &&
-		currentposition.y() == FindPosition(word[word.size()-1]).y())
+	if (word.size() == 1)
 	{
 		return true;
 	}
@@ -83,21 +86,29 @@ bool Board::RecursiveWordSearch(string word, Position currentposition)
 	return false;
 }
 
-Position Board::FindPosition(char character)
+vector<Position*> Board::FindPositions(char character)
 {
+	vector<Position*> positions;
 	for (int y=0; y<BOARD_SIZE; y++)
 	{
 		for (int x=0; x<BOARD_SIZE; x++)
 		{
 			if (letters[y][x] == character)
 			{
-				Position currentposition(x, y);
-				return currentposition;
+				Position* foundposition = new Position(x, y);
+				positions.push_back(foundposition);
 			}
 		}
 	}
-	Position currentposition(-1, -1);
-	return currentposition;
+	return positions;
+}
+
+void Board::ClearPositions(vector<Position*> positions)
+{
+	for (int i=0; i<positions.size(); i++)
+	{
+		delete positions[i];
+	}
 }
 
 char Board::AccessPosition(Position givenposition)
