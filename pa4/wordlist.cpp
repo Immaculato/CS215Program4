@@ -65,5 +65,10 @@ bool WordList::BinarySearch(string word, int lower, int higher)
 		}
 	}
 }
+
+int WordList::size()
+{
+	return words.size();
+}
 //vector of strings containing all the specified words.
 //vector<string> words;

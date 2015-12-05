@@ -74,16 +74,20 @@ bool Board::RecursiveWordSearch(string word, Position currentposition)
 	list<Position> adjacentpositions = adjacent(currentposition);
 	list<Position>::iterator itindex;
 	itindex = adjacentpositions.begin();
+	bool found = false;
 	while (itindex != adjacentpositions.end())
 	{
 		Position tempposition = *itindex;
-		if (AccessPosition(tempposition) == word[1])
+		if (AccessPosition(tempposition) == word[1] && !found)
 		{
-			return RecursiveWordSearch(word.substr(1, word.size() - 1), tempposition);
+			found = RecursiveWordSearch(word.substr(1, word.size() - 1), tempposition);
 		}
 		itindex++;
 	}
-	return false;
+	if (!found)
+	{
+		return false;
+	}
 }
 
 vector<Position*> Board::FindPositions(char character)

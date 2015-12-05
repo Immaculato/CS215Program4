@@ -13,6 +13,9 @@ public:
 	WordList(string filename);
 	//checks whether the word is in the list, via binary search. uses the helper function to recursively find it.
 	bool WordInList(string word);
+	//accessor that reports the size of the word list. used in loading game
+	int size();
+
 
 private:
 	//helper function that recursively finds a word in the list.

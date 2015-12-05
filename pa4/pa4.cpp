@@ -21,9 +21,10 @@ int main()
 	cout << words.WordInList("LEFT");
 	*/
 
-	Board test;
-	test.PrintBoard();
-	cout << test.WordOnBoard("AFL");
-    system("pause");
-    return 0;
+	Game Boggle;
+	while (!Boggle.IsGameOver())
+	{
+		Boggle.TakeTurn();
+	}
+	Boggle.GameOverManGameOver();
 }
