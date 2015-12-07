@@ -1,3 +1,11 @@
+/* Tristan Basil
+ * CS 215, Fall 2015
+ * Programming Assignment 4 
+ * 12/6/2015
+ *
+ * Impementation of letters helper functions.
+ */
+
 #include <cstdlib>
 #include <string>
 #include <cctype>
@@ -54,6 +62,6 @@ string upperCase(string input)
 {
     for (size_t i = 0; i < input.length(); i++)
         if (islower(input[i]))
-            input[i] = toupper(input[i]);
+            input[i] = toupper(input[i]);		//for each letter, make it uppercase.
     return input;
 }
